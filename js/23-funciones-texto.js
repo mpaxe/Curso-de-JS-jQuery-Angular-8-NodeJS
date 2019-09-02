@@ -58,12 +58,29 @@ var busqueda5 = str4.charAt(12);
 
 console.log(busqueda5);
 
-// Empieza por una cadena, true o false
+// Si empieza por una cadena, true o false
 console.log(str4.startsWith("Esto"));
 console.log(str4.startsWith("prueba"));
-// Termina por una cadena, true o false
+// Si termina por una cadena, true o false
 console.log(str4.endsWith("sbustr"));
 console.log(str4.endsWith("Esto"));
-// Incluye una cadena, true o false
+// Si incluye una cadena, true o false
 console.log(str4.includes("prueba"));
 console.log(str4.includes("usar"));
+
+// Remplazar cadenas
+var busqueda6 = str4.replace("sbustr", "replace");
+console.log(busqueda6);
+
+// Cortar cadenas
+var busqueda7 = str4.slice(5, 18);
+console.log(busqueda7);
+
+// Trozcear cadenas
+var busqueda8 = str4.split(" ");
+console.log(busqueda8);
+// Quitar espacios sobrantes por delante y por detrás
+var str5 = "    Esto es una prueba para usar trim   ";
+var busqueda9 = str5.trim();
+console.log(str5);
+console.log(busqueda9);
