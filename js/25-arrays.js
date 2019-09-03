@@ -39,4 +39,21 @@ nombres.forEach((nomb, index, arr)=>{
 //     document.write("<li>"+index+". "+elemento+"</li>");
 // });
 
+var busqueda1 = lenguajes.find(function(lenguaje){
+    return lenguaje = "Java";
+});
+// Es lo mismo que el de arriba
+var busqueda2 = lenguajes.find(lenguaje => lenguaje == "Java");
+// Para sacar el indice
+var busqueda3 = lenguajes.findIndex(lenguaje => lenguaje == "Java");
+
+var precios = [10,25,37,88];
+// Hacer una busqueda sobre un rango
+var busqueda4 = precios.some(precio => precio >= 1);
+
 document.write("</ul>");
+
+console.log(busqueda1);
+console.log(busqueda2);
+console.log(busqueda3);
+console.log(busqueda4);
