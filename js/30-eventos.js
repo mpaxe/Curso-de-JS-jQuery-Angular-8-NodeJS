@@ -4,10 +4,11 @@ window.addEventListener('load', () => {
     // Eventos del ratón
     function cambiarColor(){
         var bg = boton.style.background;
-        if(bg == "green"){
+        if(bg == "blue"){
             bg = "red";
         }else{
-            bg = "green";
+            bg = "blue";
+            boton.style.color = "white";
         }
         boton.style.padding = "10px";
         boton.style.border = "3px solid #ccc"
@@ -24,6 +25,8 @@ window.addEventListener('load', () => {
     // Click
     boton.addEventListener('click',function(){
         cambiarColor();
+        console.log(this);
+        this.style.border = "1.5px dashed red";
     });
 
     // Mouseover
@@ -34,6 +37,7 @@ window.addEventListener('load', () => {
     // Mouseout
     boton.addEventListener('mouseout', function(){
         boton.style.background = "yellow"
+        boton.style.color = "black";
     });
 
     // Focus
