@@ -6,15 +6,32 @@
     </head>
     <body>
         <h1>Listado de Usuarios</h1>
-        <div id="usuarios">
-            <input type="text" id="id_usuario" />
-            <button onclick="idUsuario()">Mostrar</button>
-            <br>
-            <br>
-            <span class="loading">Cargando...</span>
-            <div id="usuario"></div>
-        </div>
-
+        <form action="#" id="form_usuario">
+            <div id="usuarios">
+                <input type="text" id="id_usuario" />
+                <button id="boton"">Mostrar</button>
+                <br>
+                <br>
+            </div>
+            <div>
+                <table id="mostrar_usuario" border>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Página web</th>
+                    </tr>
+                </table>
+                <p>
+                    <span class="loading">Esperando primer usuario...</span>
+                </p>
+            </div>
+            <hr>
+            <div id="mostrar_usuarios">
+            </div>
+        </form>
         <script src="js/36-fetch-v0.2.js"></script>
     </body>
 </html>
