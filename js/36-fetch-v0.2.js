@@ -9,12 +9,25 @@ function obtenerId() {
     id = document.querySelector('#id_usuario').value;
     return id;
 }
- 
-function obtenerUsuarioPorId(id){
-    fetch('https://jsonplaceholder.typicode.com/users/'+id)
-    .then(data => data.json()
-    .then(user => {
-        let tabla = document.createElement('tr');
+
+function obtenerDatos(id=""){
+    return fetch('https://jsonplaceholder.typicode.com/users/'+id);
+}
+
+function obtenerUsuarios(){
+    obtenerDatos()
+    .then(data => data.json())
+    .then(users => {
+        users.map((user ,i) => {
+            let usuario = document.createElement('h4');
+            usuario.innerHTML = user.id+" - "+user.name;
+            div_usuarios.appendChild(usuario);
+        });
+    });
+}
+
+function insertarRegistro(user){
+    let tabla = document.createElement('tr');
         let id = document.createElement('td');
         let nombre = document.createElement('td');
         let nombre_usuario = document.createElement('td');
@@ -36,26 +49,21 @@ function obtenerUsuarioPorId(id){
         div_usuario.appendChild(web);
         document.querySelector('#id_usuario').value = '';
         document.querySelector('.loading').style.display = 'none';
-    }));
 }
-
-function obtenerUsuarios(){
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then(data => data.json()
-    .then(users => {
-        users.map((user ,i) => {
-            let usuario = document.createElement('h4');
-            usuario.innerHTML = user.id+" - "+user.name;
-            div_usuarios.appendChild(usuario);
-        });
-    }));
+ 
+function obtenerUsuarioPorId(id){
+    obtenerDatos(id)
+    .then(data => data.json())
+    .then(user => {
+        insertarRegistro(user);
+    });
 }
 
 var boton = document.querySelector('#boton');
-
-obtenerUsuarios();
 
 boton.addEventListener('click', function(){
     id = obtenerId();
     obtenerUsuarioPorId(id);
 });
+
+obtenerUsuarios();
